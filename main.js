@@ -15,9 +15,6 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-    mainWindow = new BrowserWindow({width: 800, height: 600});
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
-
     var logger = require("lib/logger.js");
     logger.setLogLevel(logger.DEBUG);
 
@@ -25,10 +22,13 @@ app.on('ready', function() {
     var colors;
     var packages;
     [packages, colors] = pack.getPackages();
+    require("lib/window").setColor(colors[0]);
     pack.loadPackages(packages);
 
-    mainWindow.on('closed', function() {
+    window = require("lib/window").getWindow();
+
+    window.BrowserWindow.on('closed', function() {
         pack.unloadPackages(packages);
-        mainWindow = null;
+        window.BrowserWindow = null;
     });
 });
