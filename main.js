@@ -27,6 +27,10 @@ app.on('ready', function() {
 
     window = require("lib/window").getWindow();
 
+    window.BrowserWindow.on('ready-to-show', function() {
+        pack.activatePackages(packages);
+    });
+
     window.BrowserWindow.on('closed', function() {
         pack.unloadPackages(packages);
         window.BrowserWindow = null;
