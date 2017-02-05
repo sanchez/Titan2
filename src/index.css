@@ -1,7 +1,7 @@
 .grid-container {
     display: grid;
     grid-template-columns: [treeview-start] 12em [treeview-end mainview-start] 1fr [mainview-end];
-    grid-template-rows: [topview-start] 1fr [topview-end statusview-start] 1em [statusview-end];
+    grid-template-rows: [topview-start] 1fr [topview-end statusview-start] 2em [statusview-end];
     grid-template-areas: "treeview mainview"
     "statusview statusview";
     grid-column-gap: 5px;
@@ -21,6 +21,18 @@
 
 .statusview {
     grid-area: statusview;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-left {
+    padding: 0.5em;
+}
+
+.status-right {
+    padding: 0.5em;
 }
 
 html, body {
