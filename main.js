@@ -16,7 +16,7 @@ app.on('window-all-closed', function() {
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({width: 800, height: 600});
-    mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
 
     var logger = require("lib/logger.js");
     logger.setLogLevel(logger.DEBUG);
