@@ -22,7 +22,10 @@ app.on('ready', function() {
     logger.setLogLevel(logger.DEBUG);
 
     var pack = require("lib/packages.js");
-    var packages = pack.loadPackages(pack.getPackages());
+    var colors;
+    var packages;
+    [packages, colors] = pack.getPackages();
+    pack.loadPackages(packages);
 
     mainWindow.on('closed', function() {
         pack.unloadPackages(packages);
