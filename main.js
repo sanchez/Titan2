@@ -22,7 +22,6 @@ app.on('ready', function() {
     logger.setLogLevel(logger.DEBUG);
 
     var packages = require("lib/packages.js");
-    console.log(packages.getPackages());
     packages.loadPackages(packages.getPackages());
 
     mainWindow.on('closed', function() {
