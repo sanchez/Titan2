@@ -27,7 +27,7 @@ app.on('ready', function() {
 
     window = require("lib/window").getWindow();
 
-    window.BrowserWindow.on('ready-to-show', function() {
+    window.ipcMain.on("window-onload", function(event, arg) {
         pack.activatePackages(packages);
     });
 

@@ -7,5 +7,8 @@
     "electron": "^1.4.15",
     "less": "^2.7.2"
   },
-  "repository": "https://github.com/sanchez/Titan2.git"
+  "repository": "https://github.com/sanchez/Titan2.git",
+  "devDependencies": {
+    "devtron": "^1.4.0"
+  }
 }
