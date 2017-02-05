@@ -21,10 +21,11 @@ app.on('ready', function() {
     var logger = require("lib/logger.js");
     logger.setLogLevel(logger.DEBUG);
 
-    var packages = require("lib/packages.js");
-    packages.loadPackages(packages.getPackages());
+    var pack = require("lib/packages.js");
+    var packages = pack.loadPackages(pack.getPackages());
 
     mainWindow.on('closed', function() {
+        pack.unloadPackages(packages);
         mainWindow = null;
     });
 });
