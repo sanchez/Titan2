@@ -9,5 +9,7 @@ function documentReady() {
     setTimeout(() => {
         manager.activatePackages();
     }, 0);
+    
     logger.log("Ready");
+    require("manager/ipc").send("document", "ready");
 }
