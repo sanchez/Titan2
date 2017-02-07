@@ -8,13 +8,7 @@ function Manager() {
     var fileBuf = [];
     if (files) {
         files.forEach((file) => {
-            // fileBuf.push(new Promise((resolve, reject) => {
-            //     var packJSON = JSON.parse(await fs.readFile(`src/packages/${file}/package.json`));
-            //     console.log("Run boy");
-            //     resolve("packJSON.type");
-            // }));
             var p = new Promise((resolve, reject) => {
-                // var packJSON = JSON.parse(await fs.readFile(`src/packages/${file}/package.json`));
                 var fileContents = fs.readFileSync(`src/packages/${file}/package.json`);
                 var packJSON = JSON.parse(fileContents);
                 resolve({
