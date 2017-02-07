@@ -36,18 +36,21 @@ function Manager() {
     });
 
     this.loadPackages =  function() {
-        var promiseBuf = [];
-        this.packagesList.forEach((pack) => {
-            var p = new Promise((resolve, reject) => {
+        var mapFunction = (pack) => {
+            return new Promise((resolve, reject) => {
                 try {
-                    require(pack);
+                    var lib = require(pack);
+                    if (lib.load !== undefined) {
+                        lib.load();
+                    }
                     resolve(`Loaded: ${pack}`);
                 } catch (err) {
+                    console.log(err);
                     reject(`Error Loading: ${pack}`);
                 }
             });
-            promiseBuf.push(p);
-        });
+        };
+        var promiseBuf = this.packagesList.map(mapFunction);
         Promise.all(promiseBuf).then((values) => {
             var logger = require("logger");
             values.forEach((val) => {
