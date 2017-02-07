@@ -48,6 +48,14 @@ var log = (message) => {
     console.log(getTimeStamp() + getDebugStamp() + "  " + message);
 }
 
+Object.defineProperty(global, "logger", {
+    get: () => {
+        return {
+            log
+        }
+    }
+});
+
 module.exports = {
     log
 }

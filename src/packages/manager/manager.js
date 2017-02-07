@@ -44,7 +44,7 @@ function Manager() {
         this.packagesList.forEach((pack) => {
             var lib = require(pack);
             if (lib.load !== undefined) {
-                require("logger").log(`Loading: ${pack}`);
+                logger.log(`Loading: ${pack}`);
                 lib.load();
             }
         });
@@ -58,7 +58,7 @@ function Manager() {
         this.packagesList.forEach((pack) => {
             var lib = require(pack);
             if (lib.activate !== undefined) {
-                require("logger").log(`Activating: ${pack}`);
+                logger.log(`Activating: ${pack}`);
                 lib.activate();
             }
         })
@@ -67,7 +67,7 @@ function Manager() {
 
 // This enables the use of a static manager. So that manager is the same for every package that references and uses it
 if (global.manager === undefined) {
-    require("logger").log("Creating Manager");
+    logger.log("Creating Manager");
     global.manager = new Manager();
 }
 
