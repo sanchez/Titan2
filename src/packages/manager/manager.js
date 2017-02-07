@@ -8,33 +8,17 @@ function Manager() {
     // Load all the files/folders in the packages directory
     var fs = require("fs");
     var files = fs.readdirSync("./src/packages");
-    var fileBuf = [];
     if (files) {
         files.forEach((file) => {
-            // for each item in the packages directory, create a promise that loads and returns the package information
-            var p = new Promise((resolve, reject) => {
-                var fileContents = fs.readFileSync(`src/packages/${file}/package.json`);
-                var packJSON = JSON.parse(fileContents);
-                resolve({
-                    file,
-                    "type": packJSON.type
-                });
-            });
-            // add the promise to an array for loading later
-            fileBuf.push(p);
-        });
-    }
-    // execute all the promises and process the returns
-    Promise.all(fileBuf).then((values) => {
-        values.forEach((pack) => {
-            // sort each package into required arrays for the types of packages contained
-            if (pack.type === "package") {
-                this.packagesList.push(pack.file);
-            } else if (pack.type === "theme") {
-                this.themeList.push(pack.file);
+            var fileContents = fs.readFileSync(`src/packages/${file}/package.json`);
+            var packJSON = JSON.parse(fileContents);
+            if (packJSON.type === "package") {
+                this.packagesList.push(packJSON.name);
+            } else if (packJSON.type === "theme") {
+                this.themeList.push(file);
             }
         });
-    });
+    }
 
     /**
      * Runs the load function for the packages.
