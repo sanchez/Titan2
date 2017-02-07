@@ -9,7 +9,8 @@ function documentReady() {
     setTimeout(() => {
         manager.activatePackages();
     }, 0);
-    
+
+    manager.notify("Titan Text Editor", "Document Has Loaded");
     logger.log("Ready");
     require("manager/ipc").send("document", "ready");
 }

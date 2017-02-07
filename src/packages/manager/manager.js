@@ -47,6 +47,11 @@ function Manager() {
             }
         })
     };
+
+    /**
+     * Creates and displays a notification to the native desktop screen
+     */
+    this.notify = require("manager/notif").notify;
 }
 
 // This enables the use of a static manager. So that manager is the same for every package that references and uses it
