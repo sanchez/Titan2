@@ -1,4 +1,6 @@
 function documentReady() {
+    require("devtron").install();
+
     process.env.NODE_PATH = `${__dirname}/packages`;
     require('module').Module._initPaths();
     var logger = require("logger");
