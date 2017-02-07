@@ -36,30 +36,24 @@ function Manager() {
     });
 
     this.loadPackages =  function() {
-        var mapFunction = (pack) => {
-            return new Promise((resolve, reject) => {
-                try {
-                    var lib = require(pack);
-                    if (lib.load !== undefined) {
-                        lib.load();
-                    }
-                    resolve(`Loaded: ${pack}`);
-                } catch (err) {
-                    console.log(err);
-                    reject(`Error Loading: ${pack}`);
-                }
-            });
-        };
-        var promiseBuf = this.packagesList.map(mapFunction);
-        Promise.all(promiseBuf).then((values) => {
-            var logger = require("logger");
-            values.forEach((val) => {
-                logger.log(val);
-            });
-        }).catch((err) => {
-            require("logger").log(err);
+        this.packagesList.forEach((pack) => {
+            var lib = require(pack);
+            if (lib.load !== undefined) {
+                require("logger").log(`Loading: ${pack}`);
+                lib.load();
+            }
         });
-    }
+    };
+
+    this.activatePackages = function() {
+        this.packagesList.forEach((pack) => {
+            var lib = require(pack);
+            if (lib.activate !== undefined) {
+                require("logger").log(`Activating: ${pack}`);
+                lib.activate();
+            }
+        })
+    };
 }
 
 if (global.manager === undefined) {
