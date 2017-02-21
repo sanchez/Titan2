@@ -52,13 +52,22 @@ function Menu() {
         }
     ];
 
+    /**
+     * Builds the physical menu from the array template
+     */
     this.buildMenu = function () {
         this.menu = Menu.buildFromTemplate(this.template);
         Menu.setApplicationMenu(this.menu);
     };
 
+    // Makes sure that the menu has been built before people make changes
     this.buildMenu();
 
+    /**
+     * Returns the menu from matching label
+     * @param  {string} label label to search for and return
+     * @return {JSON}       Matching Menu item
+     */
     this.getMenu = function(label) {
         var result = undefined;
         this.template.forEach((menu) => {
@@ -69,6 +78,11 @@ function Menu() {
         return result;
     }
 
+    /**
+     * Checks if the menu and submenu exists
+     * @param  {string} index The lookup string to search for menu
+     * @return {boolean}       Returns true if the menu exists, otherwise false
+     */
     this.existsMenu = function(index) {
         var keys = index.split(".");
         var currentMenu = this.template;
@@ -97,6 +111,11 @@ function Menu() {
         return false;
     }
 
+    /**
+     * Creates the menu and submenus. This uses a recursive addition
+     * @param  {string} data     The string location of the menu to be added
+     * @param  {function} clickFun The function to be called when the menu item is clicked
+     */
     this.createMenuItem = function(data, clickFun) {
         var keys = data.split(".");
         var currentMenu = this.template;
@@ -134,4 +153,5 @@ function Menu() {
 
 }
 
+// Returns the menu object on export
 module.exports = Menu;
