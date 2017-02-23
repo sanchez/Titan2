@@ -39,7 +39,12 @@ function Menu() {
         },
         {
             label: "Packages",
-            submenu: []
+            submenu: [
+                {
+                    label: "Manager",
+                    accelerator: "CmdOrCtrl+M"
+                }
+            ]
         },
         {
             label: "Help",
