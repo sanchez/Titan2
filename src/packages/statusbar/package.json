@@ -2,5 +2,6 @@
     "name": "statusbar",
     "version": "0.1.0",
     "main": "statusbar.js",
-    "type": "package"
+    "type": "package",
+    "level": 1
 }

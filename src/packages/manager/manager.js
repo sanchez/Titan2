@@ -3,6 +3,10 @@
  */
 function Manager() {
     this.packagesList = [];
+    // Create a 5 layered array for different levels of packages. The different levels helps to determine order to load packages.
+    for (var i = 0; i < 5; i++) {
+        this.packagesList.push([]);
+    }
     this.themeList = [];
 
     // Load all the files/folders in the packages directory
@@ -13,7 +17,11 @@ function Manager() {
             var fileContents = fs.readFileSync(`src/packages/${file}/package.json`);
             var packJSON = JSON.parse(fileContents);
             if (packJSON.type === "package") {
-                this.packagesList.push(packJSON.name);
+                if (packJSON.level === undefined) {
+                    this.packagesList[4].push(packJSON.name);
+                } else {
+                    this.packagesList[packJSON.level].push(packJSON.name);
+                }
             } else if (packJSON.type === "theme") {
                 this.themeList.push(file);
             }
@@ -25,12 +33,14 @@ function Manager() {
      * This runs when the window is being constructed and initialized
      */
     this.loadPackages =  function() {
-        this.packagesList.forEach((pack) => {
-            var lib = require(pack);
-            if (lib.load !== undefined) {
-                logger.log(`Loading: ${pack}`);
-                lib.load();
-            }
+        this.packagesList.forEach((level) => {
+            level.forEach((pack) => {
+                var lib = require(pack);
+                if (lib.load !== undefined) {
+                    logger.log(`Loading ${pack}`);
+                    lib.load();
+                }
+            })
         });
     };
 
@@ -39,13 +49,15 @@ function Manager() {
      * This usually happens after the window has been initialized and created
      */
     this.activatePackages = function() {
-        this.packagesList.forEach((pack) => {
-            var lib = require(pack);
-            if (lib.activate !== undefined) {
-                logger.log(`Activating: ${pack}`);
-                lib.activate();
-            }
-        })
+        this.packagesList.forEach((level) => {
+            level.forEach((pack) => {
+                var lib = require(pack);
+                if (lib.activate !== undefined) {
+                    logger.log(`Activating ${pack}`);
+                    lib.activate();
+                }
+            })
+        });
     };
 
     /**
