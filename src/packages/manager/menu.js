@@ -42,7 +42,8 @@ function Menu() {
             submenu: [
                 {
                     label: "Manager",
-                    accelerator: "CmdOrCtrl+M"
+                    accelerator: "CmdOrCtrl+M",
+                    click() { alert("Manager"); }
                 }
             ]
         },
@@ -120,8 +121,9 @@ function Menu() {
      * Creates the menu and submenus. This uses a recursive addition
      * @param  {string} data     The string location of the menu to be added
      * @param  {function} clickFun The function to be called when the menu item is clicked
+     * @param  {string} accelerator The accelerator for the menu item, can be undefined
      */
-    this.createMenuItem = function(data, clickFun) {
+    this.createMenuItem = function(data, clickFun, accelerator) {
         var keys = data.split(".");
         var currentMenu = this.template;
 
@@ -141,11 +143,13 @@ function Menu() {
                 if (i === (keys.length - 1)) {
                     newList = {
                         label: keys[i],
+                        accelerator,
                         click() { clickFun() }
                     }
                 } else {
                     newList = {
                         label: keys[i],
+                        accelerator,
                         submenu: []
                     }
                 }
