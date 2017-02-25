@@ -18,9 +18,9 @@ function Manager() {
             var packJSON = JSON.parse(fileContents);
             if (packJSON.type === "package") {
                 if (packJSON.level === undefined) {
-                    this.packagesList[4].push(packJSON.name);
+                    this.packagesList[4].push(packJSON);
                 } else {
-                    this.packagesList[packJSON.level].push(packJSON.name);
+                    this.packagesList[packJSON.level].push(packJSON);
                 }
             } else if (packJSON.type === "theme") {
                 this.themeList.push(file);
@@ -35,9 +35,9 @@ function Manager() {
     this.loadPackages =  function() {
         this.packagesList.forEach((level) => {
             level.forEach((pack) => {
-                var lib = require(pack);
+                var lib = require(pack.name);
                 if (lib.load !== undefined) {
-                    logger.log(`Loading ${pack}`);
+                    logger.log(`Loading ${pack.name}`);
                     lib.load();
                 }
             })
@@ -51,9 +51,9 @@ function Manager() {
     this.activatePackages = function() {
         this.packagesList.forEach((level) => {
             level.forEach((pack) => {
-                var lib = require(pack);
+                var lib = require(pack.name);
                 if (lib.activate !== undefined) {
-                    logger.log(`Activating ${pack}`);
+                    logger.log(`Activating ${pack.name}`);
                     lib.activate();
                 }
             })
