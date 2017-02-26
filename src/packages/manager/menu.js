@@ -137,20 +137,26 @@ function Menu() {
                 }
             }
             if (found) {
-                break;
+                // break;
             } else {
                 var newList = undefined;
                 if (i === (keys.length - 1)) {
                     newList = {
-                        label: keys[i],
-                        accelerator,
-                        click() { clickFun() }
+                        label: keys[i]
+                    }
+                    if (accelerator !== undefined) {
+                        newList.accelerator = accelerator;
+                    }
+                    if (clickFun !== undefined) {
+                        newList.click = clickFun;
                     }
                 } else {
                     newList = {
                         label: keys[i],
-                        accelerator,
                         submenu: []
+                    }
+                    if (accelerator !== undefined) {
+                        newList.accelerator = accelerator;
                     }
                 }
                 currentMenu.push(newList);
