@@ -10,20 +10,6 @@ function Menu() {
         {
             label: "File",
             submenu: [
-                {
-                    label: "New File",
-                    accelerator: "CmdOrCtrl+N"
-                },
-                {
-                    label: "Open File",
-                    accelerator: "CmdOrCtrl+O"
-                },
-                {
-                    label: "Save File",
-                    accelerator: "CmdOrCtrl+S"
-                },
-                { type: "separator" },
-                { role: "quit" }
             ]
         },
         {

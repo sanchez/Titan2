@@ -1,0 +1,7 @@
+{
+    "name": "filemanager",
+    "version": "0.1.0",
+    "main": "filemanager.js",
+    "type": "package",
+    "level": 1
+}
