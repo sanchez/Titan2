@@ -1,0 +1,7 @@
+{
+    "name": "treeview",
+    "version": "0.1.0",
+    "main": "treeview.js",
+    "type": "package",
+    "level": 2
+}
