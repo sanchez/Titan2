@@ -70,6 +70,13 @@ function Manager() {
 
     // Sets the gui package handler for the manager
     this.gui = require("manager/gui");
+
+    // sets the color theme and other loading stuff
+    this.color = require("manager/color");
+
+    this.srcDir = `${__dirname}/../..`;
+    this.packagesDir = `${__dirname}/..`;
+    this.stylesDir = `${__dirname}/../../styles/loaded`;
 }
 
 // This enables the use of a static manager. So that manager is the same for every package that references and uses it
