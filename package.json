@@ -7,5 +7,9 @@
     "electron": "^1.4.15",
     "less": "^2.7.2"
   },
+  "scripts":{
+    "start": "electron .",
+    "prestart": "sass src/styles/style.scss src/styles/style.css"
+  },
   "repository": "https://github.com/sanchez/Titan2.git"
 }

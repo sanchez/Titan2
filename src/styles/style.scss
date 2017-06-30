@@ -1,0 +1,10 @@
+@import "variables";
+
+body {
+    margin: 0em;
+    border: 0em;
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+@import "layout";

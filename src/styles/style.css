@@ -1,0 +1,31 @@
+body {
+  margin: 0em;
+  border: 0em;
+  background-color: #fff;
+  color: #000; }
+
+.root-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start; }
+  .root-container .root-main {
+    flex-grow: 1;
+    flex-shrink: 1; }
+  .root-container .root-status {
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-width: 0.2em;
+    border-color: #000;
+    border-top-style: solid; }
+
+html, body, .root-container {
+  height: 100%;
+  width: 100%; }
+
+.root-main, .root-status {
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */
