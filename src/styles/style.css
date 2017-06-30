@@ -17,9 +17,12 @@ body {
   .root-container .root-status {
     flex-grow: 0;
     flex-shrink: 0;
-    border-width: 0.2em;
+    border-width: 0.1em;
     border-color: #000;
-    border-top-style: solid; }
+    border-top-style: solid;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between; }
 
 html, body, .root-container {
   height: 100%;
