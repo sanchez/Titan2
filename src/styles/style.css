@@ -31,4 +31,8 @@ html, body, .root-container {
 .root-main, .root-status {
   width: 100%; }
 
+#file-flex {
+  display: flex;
+  flex-direction: row; }
+
 /*# sourceMappingURL=style.css.map */

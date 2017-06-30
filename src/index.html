@@ -6,12 +6,16 @@
     </head>
     <body onload="documentReady()">
         <div class="root-container">
-            <div class="root-main">Main</div>
+            <div class="root-main" id="file-flex">
+                <div id="file-viewer">Viewer</div>
+                <div id="file-main">Main Content</div>
+            </div>
             <div class="root-status">
                 <div class="status-left">Left</div>
                 <div class="status-right">Right</div>
             </div>
         </div>
+        <script src="./scripts/split.js"></script>
         <script src="./scripts/index.js"></script>
     </body>
 </html>
