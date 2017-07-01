@@ -1,0 +1,7 @@
+{
+    "name": "project-view",
+    "version": "0.1.0",
+    "main": "project-view.js",
+    "type": "package",
+    "level": 1
+}

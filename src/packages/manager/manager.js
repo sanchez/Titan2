@@ -50,6 +50,7 @@ function Manager() {
 
     this.srcDir = `${__dirname}/../..`;
     this.packagesDir = `${__dirname}/..`;
+    this.workingDir = "./";
 }
 
 if (global.manager === undefined) {
