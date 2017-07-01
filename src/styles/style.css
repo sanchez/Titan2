@@ -24,9 +24,14 @@ body {
     flex-wrap: nowrap;
     justify-content: space-between; }
 
+#file-viewer {
+  display: flex;
+  flex-direction: column; }
+
 html, body, .root-container {
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-family: "Comic Sans MS", sans-serif; }
 
 .root-main, .root-status {
   width: 100%; }
@@ -36,5 +41,11 @@ html, body, .root-container {
   flex-direction: row; }
   #file-flex .gutter {
     background-color: #000; }
+
+.spacer {
+  height: 10px; }
+
+h3 {
+  margin: 0px; }
 
 /*# sourceMappingURL=style.css.map */

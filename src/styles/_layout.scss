@@ -25,9 +25,15 @@
     }
 }
 
+#file-viewer {
+    display: flex;
+    flex-direction: column;
+}
+
 html, body, .root-container {
     height: 100%;
     width: 100%;
+    font-family: "Comic Sans MS", sans-serif;
 }
 
 .root-main, .root-status {
@@ -41,4 +47,12 @@ html, body, .root-container {
     .gutter {
         background-color: $gutter-color;
     }
+}
+
+.spacer {
+    height: 10px;
+}
+
+h3 {
+    margin: 0px;
 }
