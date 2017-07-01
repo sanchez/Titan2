@@ -1,0 +1,6 @@
+{
+    "name": "hello",
+    "main": "hello.js",
+    "version": "0.1.0",
+    "type": "package"
+}

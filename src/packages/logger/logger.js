@@ -1,3 +1,5 @@
+//# sourceURL=logger
+
 Object.defineProperty(global, '__stack', {
     get: function() {
         var orig = Error.prepareStackTrace;
@@ -44,7 +46,7 @@ var getDebugStamp = function() {
 }
 
 var log = function(message) {
-    console.log(getTimeStamp() + getDebugStamp() + "  " + message);
+    console.log(getTimeStamp() + getDebugStamp() + "\n" + message);
 }
 
 Object.defineProperty(global, "logger", {

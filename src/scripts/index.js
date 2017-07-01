@@ -18,6 +18,13 @@ function documentReady() {
     process.env.NODE_PATH = `${__dirname}/packages`;
     require("module")._initPaths();
 
+    // Load the package manager
+    var manager = require("manager");
+    manager.loadPackages();
+    setTimeout(() => {
+        manager.activatePackages();
+    }, 0);
+
     var logger = require("logger");
     logger.log("Loading Everything");
 }
