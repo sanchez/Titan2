@@ -25,6 +25,8 @@ function documentReady() {
         manager.activatePackages();
     }, 0);
 
+    manager.notify("Titan Text Editor", "Document Has Loaded");
+
     var logger = require("logger");
     logger.log("Loading Everything");
 }

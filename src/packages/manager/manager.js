@@ -46,6 +46,8 @@ function Manager() {
         });
     }
 
+    this.notify = require("manager/notif").notify;
+
     this.srcDir = `${__dirname}/../..`;
     this.packagesDir = `${__dirname}/..`;
 }
