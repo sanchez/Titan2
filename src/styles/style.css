@@ -34,5 +34,7 @@ html, body, .root-container {
 #file-flex {
   display: flex;
   flex-direction: row; }
+  #file-flex .gutter {
+    background-color: #000; }
 
 /*# sourceMappingURL=style.css.map */

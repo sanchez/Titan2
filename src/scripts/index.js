@@ -13,5 +13,11 @@ function loadSplits() {
 
 function documentReady() {
     loadSplits();
-    process.chdir(`${__dirname}/packages`);
+
+    // Sets the packages directory
+    process.env.NODE_PATH = `${__dirname}/packages`;
+    require("module")._initPaths();
+
+    var logger = require("logger");
+    logger.log("Loading Everything");
 }

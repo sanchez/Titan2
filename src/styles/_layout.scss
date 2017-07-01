@@ -37,4 +37,8 @@ html, body, .root-container {
 #file-flex {
     display: flex;
     flex-direction: row;
+
+    .gutter {
+        background-color: $gutter-color;
+    }
 }
