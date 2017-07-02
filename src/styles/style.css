@@ -27,7 +27,8 @@ body {
 #file-viewer {
   display: flex;
   flex-direction: column;
-  padding: 0.5em; }
+  padding: 0.5em;
+  overflow: scroll; }
 
 html, body, .root-container {
   height: 100%;
